@@ -1,5 +1,6 @@
 import streamlit as st
 from pathway_config import PATHWAYS
+from content.video_links import VIDEO_LINKS, VIDEO_HEIGHT
 from components.pathway_header import render_pathway_header, render_what_to_expect, render_pathway_flow
 from components.section_divider import render_section_divider, render_section_header
 from components.resource_card import render_resource_card, render_video_placeholder, render_workbook_card
@@ -50,8 +51,26 @@ By completing this pathway, you'll arrive at your advisory meeting with organize
 and a clear understanding of your financing needs.
 """)
 
-# Video placeholder
-render_video_placeholder("Introduction Video", "7 minutes")
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Introduction Video Section
+st.markdown("### Introduction")
+st.caption("Start with a short introduction to this pathway before moving into the preparation materials.")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Embedded intro video
+if VIDEO_LINKS["loan_intro"]:
+    st.components.v1.iframe(
+        VIDEO_LINKS["loan_intro"],
+        height=VIDEO_HEIGHT,
+        scrolling=False
+    )
+else:
+    # Fallback to placeholder if video not available
+    render_video_placeholder("Introduction Video", "7 minutes")
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 render_section_divider()
 

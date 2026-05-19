@@ -5,13 +5,14 @@ Maintains all pathway video URLs in one location for easy maintenance
 
 VIDEO_LINKS = {
     # Idea Exploration pathway videos
-    "idea_intro": "https://drive.google.com/file/d/18lHkGzj79GF5CEqir9zt9tt8QGMGELPF/preview",
+    "idea_intro": "https://drive.google.com/file/d/1eitt7KpOIbSYGeOT-LkVGXVQdGlNlSRp/preview",
     
     # Loan Readiness pathway videos
-    "loan_intro": "https://drive.google.com/file/d/1eitt7KpOIbSYGeOT-LkVGXVQdGlNlSRp/preview",
+    "loan_intro": "https://drive.google.com/file/d/18lHkGzj79GF5CEqir9zt9tt8QGMGELPF/preview",
     
-    # Recovery & Stabilization pathway videos (future)
+    # Recovery & Stabilization pathway videos
     "recovery_intro": "",  # Future: Recovery intro video
+    "recovery_pivot_persevere": "https://drive.google.com/file/d/1mDWnuFme1msjhWGTtezmV5vFGMd4kgts/preview",  # Pivot vs. Persevere video
     
     # Business Transition pathway videos (future)
     "transition_intro": "",  # Future: Business Transition intro video

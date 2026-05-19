@@ -130,9 +130,19 @@ and focused options for moving forward.
             "video",
             [
                 "Stabilization Strategies (9 min)",
-                "Making Tough Decisions (7 min)",
-                "Pivot vs. Persevere (8 min)"
+                "Making Tough Decisions (7 min)"
             ]
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Pivot vs. Persevere Video Section
+    if VIDEO_LINKS["recovery_pivot_persevere"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["recovery_pivot_persevere"],
+            section_title="Pivot vs. Persevere (8 min)",
+            intro_text="This video explores the critical decision many business owners face: when to pivot your approach versus when to persevere through challenges.",
+            subtitle="Understanding this decision framework can help you make clearer strategic choices."
         )
     
     render_section_divider()

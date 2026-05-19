@@ -13,6 +13,11 @@ st.set_page_config(
 # Custom CSS for calm, professional styling with mobile responsiveness
 st.markdown("""
     <style>
+    /* Hide Streamlit default navigation */
+    [data-testid="stSidebarNav"] {
+        display: none;
+    }
+    
     /* Main content area */
     .main {
         padding: 2rem;
@@ -119,9 +124,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar navigation with improved structure
+# Sidebar navigation with clean unbranded structure
 with st.sidebar:
+    # Header
     st.title("🎯 Client Pathways")
+    st.caption("Prepare. Focus. Move Forward.")
     st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
     # Home button
@@ -129,7 +136,6 @@ with st.sidebar:
         st.switch_page("app.py")
     
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("**Choose Your Pathway**")
     
     # Pathway buttons using config
     for pathway_key, pathway_data in PATHWAYS.items():
@@ -139,8 +145,14 @@ with st.sidebar:
     
     st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
-    st.markdown("**About**")
-    st.caption("These pathways help you prepare for meaningful advisory conversations through structured guidance and reflection.")
+    # Support card
+    st.markdown("**What Are Pathways?**")
+    st.caption("Pathways guide you through structured steps to help you prepare for a more productive advisory meeting.")
+    
+    st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
+    
+    # Footer note
+    st.caption("Thoughtful preparation before meaningful advising.")
 
 # Main content
 st.title("Client Readiness Pathways")
@@ -150,10 +162,10 @@ st.markdown("---")
 
 # Introduction
 st.markdown("""
-Welcome to the Client Readiness Pathways system. This platform helps you prepare for your advisory meeting 
-by guiding you through structured learning, reflection, and planning activities.
+Welcome to the Client Readiness Pathways system. This resource helps you prepare for your advisory meeting 
+so you can make the most of your time together.
 
-Each pathway is designed to help you arrive at your meeting with clarity, focus, and actionable questions.
+Each pathway is designed to help you arrive with clarity, focus, and actionable questions.
 """)
 
 st.markdown("## Choose Your Pathway")

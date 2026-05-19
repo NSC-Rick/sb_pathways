@@ -107,7 +107,7 @@ Potential new pathways based on demand:
 ### Authentication
 - **Current**: None
 - **Future**: OAuth or SSO integration
-- **Options**: Google, Microsoft, SBDC SSO
+- **Options**: Google, Microsoft, organizational SSO
 - **Timeline**: Phase 2 (3-6 months)
 
 ### Email System

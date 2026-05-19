@@ -190,7 +190,7 @@ This document outlines video content ideas for each pathway to guide future prod
 - Consistent across videos
 
 ### Presenters
-- SBDC advisors (credibility)
+- Business advisors (credibility)
 - Successful business owners (relatability)
 - Subject matter experts (depth)
 - Mix of voices and perspectives

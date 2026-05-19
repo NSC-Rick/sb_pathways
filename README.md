@@ -1,10 +1,10 @@
-# SBDC Client Readiness Pathways
+# Client Readiness Pathways
 
-A structured advisory preparation framework built with Streamlit to help small business clients prepare for meaningful advisor meetings.
+A lightweight, unbranded Streamlit prototype designed to help clients prepare for meaningful advisory meetings through structured learning, reflection, worksheets, and pathway-specific preparation.
 
 ## Overview
 
-Client Readiness Pathways is a lightweight web application that guides entrepreneurs and business owners through structured preparation before meeting with SBDC advisors. The system improves meeting quality by ensuring clients arrive with clarity, organized information, and focused questions.
+Client Readiness Pathways is a web application that guides entrepreneurs and business owners through structured preparation before meeting with business advisors. The system improves meeting quality by ensuring clients arrive with clarity, organized information, and focused questions.
 
 ## Pathway Philosophy
 
@@ -84,7 +84,7 @@ Each pathway follows a consistent five-step approach:
 ## Project Structure
 
 ```
-sbdc-client-pathways/
+client-pathways/
 │
 ├── app.py                          # Main application and homepage
 ├── requirements.txt                # Python dependencies
@@ -170,7 +170,7 @@ git push -u origin main
    - Connect your GitHub repository
 
 3. **Configure Service**
-   - **Name**: `sbdc-client-pathways`
+   - **Name**: `client-pathways`
    - **Environment**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
@@ -182,7 +182,7 @@ git push -u origin main
 5. **Deploy**
    - Click "Create Web Service"
    - Render will automatically build and deploy
-   - Your app will be available at `https://sbdc-client-pathways.onrender.com`
+   - Your app will be available at `https://client-pathways.onrender.com`
 
 ### Render Configuration Notes
 - Free tier apps sleep after 15 minutes of inactivity
@@ -295,7 +295,7 @@ The architecture supports future additions:
 
 For questions, issues, or suggestions:
 - Create an issue in the GitHub repository
-- Contact SBDC technical team
+- Contact the technical team
 - Email: [contact email]
 
 ## License
@@ -304,10 +304,10 @@ For questions, issues, or suggestions:
 
 ## Acknowledgments
 
-Built for Small Business Development Centers to improve client preparation and advisory meeting quality.
+Built to improve client preparation and advisory meeting quality.
 
 ---
 
-**Version**: 1.0.0  
+**Version**: 3.0.0  
 **Last Updated**: May 2026  
-**Status**: V1 Foundation Complete
+**Status**: V3 Unbranded Navigation Complete

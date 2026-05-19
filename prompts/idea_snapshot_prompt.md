@@ -13,7 +13,7 @@ When a client completes the Idea Exploration pathway, their workbook responses w
 ## Prompt Template (Future Implementation)
 
 ```
-You are reviewing a business idea exploration workbook. Create a concise summary for an SBDC advisor that includes:
+You are reviewing a business idea exploration workbook. Create a concise summary for a business advisor that includes:
 
 1. **Business Concept** (2-3 sentences)
    - What is the core idea?

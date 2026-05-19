@@ -13,7 +13,7 @@ When a client completes the Loan Readiness pathway, their workbook responses wil
 ## Prompt Template (Future Implementation)
 
 ```
-You are reviewing a loan readiness workbook. Create a concise summary for an SBDC advisor that includes:
+You are reviewing a loan readiness workbook. Create a concise summary for a business advisor that includes:
 
 1. **Loan Request** (2-3 sentences)
    - Amount requested and purpose

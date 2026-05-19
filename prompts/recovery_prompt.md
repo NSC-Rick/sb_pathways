@@ -13,7 +13,7 @@ When a client completes the Recovery & Stabilization pathway, their workbook res
 ## Prompt Template (Future Implementation)
 
 ```
-You are reviewing a business recovery workbook. Create a concise, sensitive summary for an SBDC advisor that includes:
+You are reviewing a business recovery workbook. Create a concise, sensitive summary for a business advisor that includes:
 
 1. **Situation Overview** (2-3 sentences)
    - What challenges is the business facing?

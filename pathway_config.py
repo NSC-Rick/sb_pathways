@@ -16,7 +16,7 @@ PATHWAYS = {
     "loan_readiness": {
         "name": "Loan Readiness",
         "icon": "💰",
-        "short_description": "You need financing for your business and want to prepare a strong application with clear financials and a compelling case.",
+        "short_description": "You are preparing for a loan or funding request and want to strengthen your financial position and documentation.",
         "estimated_time": "45–60 minutes",
         "page_file": "pages/loan_readiness.py",
         "workbook_placeholder": "Loan Readiness Workbook",
@@ -25,7 +25,7 @@ PATHWAYS = {
     "recovery_stabilization": {
         "name": "Recovery & Stabilization",
         "icon": "🛟",
-        "short_description": "Your business is facing challenges and you need guidance on stabilizing operations, managing cash flow, or pivoting strategy.",
+        "short_description": "Your business is facing challenges and you need support to stabilize operations and regain control.",
         "estimated_time": "30–45 minutes",
         "page_file": "pages/recovery_stabilization.py",
         "workbook_placeholder": "Recovery & Stabilization Workbook",
@@ -34,7 +34,7 @@ PATHWAYS = {
     "business_transition": {
         "name": "Business Transition",
         "icon": "🔄",
-        "short_description": "You're considering selling, transferring ownership, or closing your business and need structured guidance through the process.",
+        "short_description": "You are planning to buy, sell, or transition your business and want guidance through the process.",
         "estimated_time": "45–60 minutes",
         "page_file": "pages/business_transition.py",
         "workbook_placeholder": "Business Transition Workbook",

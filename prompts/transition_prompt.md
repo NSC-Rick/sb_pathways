@@ -13,7 +13,7 @@ When a client completes the Business Transition pathway, their workbook response
 ## Prompt Template (Future Implementation)
 
 ```
-You are reviewing a business transition workbook. Create a concise summary for an SBDC advisor that includes:
+You are reviewing a business transition workbook. Create a concise summary for a business advisor that includes:
 
 1. **Transition Goals** (2-3 sentences)
    - What type of transition? (sale, succession, closure)

@@ -9,7 +9,6 @@ PATHWAYS = {
         "icon": "💡",
         "short_description": "You have a business idea but need help clarifying your concept, validating market fit, and understanding next steps.",
         "estimated_time": "30–45 minutes",
-        "page_file": "pages/idea_exploration.py",
         "workbook_placeholder": "Idea Exploration Workbook",
         "sections": ["Welcome", "Learn", "Work", "Submit", "Schedule"]
     },
@@ -18,7 +17,6 @@ PATHWAYS = {
         "icon": "💰",
         "short_description": "You are preparing for a loan or funding request and want to strengthen your financial position and documentation.",
         "estimated_time": "45–60 minutes",
-        "page_file": "pages/loan_readiness.py",
         "workbook_placeholder": "Loan Readiness Workbook",
         "sections": ["Welcome", "Learn", "Work", "Submit", "Schedule"]
     },
@@ -27,7 +25,6 @@ PATHWAYS = {
         "icon": "🛟",
         "short_description": "Your business is facing challenges and you need support to stabilize operations and regain control.",
         "estimated_time": "30–45 minutes",
-        "page_file": "pages/recovery_stabilization.py",
         "workbook_placeholder": "Recovery & Stabilization Workbook",
         "sections": ["Welcome", "Learn", "Work", "Submit", "Schedule"]
     },
@@ -36,7 +33,6 @@ PATHWAYS = {
         "icon": "🔄",
         "short_description": "You are planning to buy, sell, or transition your business and want guidance through the process.",
         "estimated_time": "45–60 minutes",
-        "page_file": "pages/business_transition.py",
         "workbook_placeholder": "Business Transition Workbook",
         "sections": ["Welcome", "Learn", "Work", "Submit", "Schedule"]
     }

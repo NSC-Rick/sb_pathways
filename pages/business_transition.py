@@ -1,12 +1,13 @@
 import streamlit as st
 from pathway_config import PATHWAYS
-from content.video_links import VIDEO_LINKS, VIDEO_HEIGHT
+from content.video_links import VIDEO_LINKS
 from components.pathway_header import render_pathway_header, render_what_to_expect, render_pathway_flow
 from components.section_divider import render_section_divider, render_section_header
 from components.resource_card import render_resource_card, render_video_placeholder, render_workbook_card
 from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
+from components.video_embed import render_video_section
 
 # Page configuration
 st.set_page_config(
@@ -53,25 +54,22 @@ goals and the steps needed to achieve a successful transition.
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# Introduction Video Section
-st.markdown("### Introduction")
-st.caption("Start with a short introduction to this pathway before moving into the preparation materials.")
-
-st.markdown("<br>", unsafe_allow_html=True)
-
+# Introduction Video Section with improved framing
 # Future Business Transition Intro Video Placeholder
-# When transition intro video is ready, it will be embedded here using VIDEO_LINKS["transition_intro"]
 if VIDEO_LINKS["transition_intro"]:
-    st.components.v1.iframe(
-        VIDEO_LINKS["transition_intro"],
-        height=VIDEO_HEIGHT,
-        scrolling=False
+    render_video_section(
+        video_url=VIDEO_LINKS["transition_intro"],
+        section_title="Introduction",
+        intro_text="Start with a short introduction to this pathway before moving into the preparation materials.",
+        subtitle="Take a few minutes to review this introduction before continuing."
     )
 else:
     # Placeholder until video is available
+    st.markdown("### Introduction")
+    st.caption("Start with a short introduction to this pathway before moving into the preparation materials.")
+    st.markdown("<br>", unsafe_allow_html=True)
     render_video_placeholder("Introduction Video", "8 minutes")
-
-st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
 render_section_divider()
 

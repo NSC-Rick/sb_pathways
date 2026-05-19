@@ -1,4 +1,6 @@
 import streamlit as st
+from pathway_config import PATHWAYS
+from components.footer import render_footer
 
 # Page configuration
 st.set_page_config(
@@ -8,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for calm, professional styling
+# Custom CSS for calm, professional styling with mobile responsiveness
 st.markdown("""
     <style>
     /* Main content area */
@@ -79,39 +81,66 @@ st.markdown("""
         background-color: #F7F9FC;
     }
     
+    /* Sidebar section divider */
+    .sidebar-divider {
+        border-top: 1px solid #E1E8ED;
+        margin: 1rem 0;
+    }
+    
     /* Remove extra padding */
     .block-container {
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .main {
+            padding: 1rem;
+        }
+        
+        .pathway-card {
+            padding: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+        }
+        
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar navigation
+# Sidebar navigation with improved structure
 with st.sidebar:
-    st.title("🎯 Navigation")
-    st.markdown("---")
+    st.title("🎯 Client Pathways")
+    st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
-    st.markdown("### Pathways")
-    
-    if st.button("🏠 Home", use_container_width=True):
+    # Home button
+    if st.button("🏠 Home", use_container_width=True, key="nav_home"):
         st.switch_page("app.py")
     
-    if st.button("💡 Idea Exploration", use_container_width=True):
-        st.switch_page("pages/idea_exploration.py")
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("**Choose Your Pathway**")
     
-    if st.button("💰 Loan Readiness", use_container_width=True):
-        st.switch_page("pages/loan_readiness.py")
+    # Pathway buttons using config
+    for pathway_key, pathway_data in PATHWAYS.items():
+        button_label = f"{pathway_data['icon']} {pathway_data['name']}"
+        if st.button(button_label, use_container_width=True, key=f"nav_{pathway_key}"):
+            st.switch_page(pathway_data['page_file'])
     
-    if st.button("🛟 Recovery & Stabilization", use_container_width=True):
-        st.switch_page("pages/recovery_stabilization.py")
+    st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
-    if st.button("🔄 Business Transition", use_container_width=True):
-        st.switch_page("pages/business_transition.py")
-    
-    st.markdown("---")
-    st.markdown("### About")
-    st.caption("Client Readiness Pathways helps you prepare for meaningful advisory conversations through structured guidance and resources.")
+    st.markdown("**About**")
+    st.caption("These pathways help you prepare for meaningful advisory conversations through structured guidance and reflection.")
 
 # Main content
 st.title("Client Readiness Pathways")
@@ -129,58 +158,42 @@ Each pathway is designed to help you arrive at your meeting with clarity, focus,
 
 st.markdown("## Choose Your Pathway")
 
-# Pathway cards in two columns
+# Pathway cards in two columns using config
 col1, col2 = st.columns(2)
 
-with col1:
-    st.markdown("""
-    <div class="pathway-card">
-        <h3>💡 Idea Exploration</h3>
-        <p>You have a business idea but need help clarifying your concept, validating market fit, 
-        and understanding next steps.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    if st.button("Start Idea Exploration", key="idea", use_container_width=True):
-        st.switch_page("pages/idea_exploration.py")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div class="pathway-card">
-        <h3>🛟 Recovery & Stabilization</h3>
-        <p>Your business is facing challenges and you need guidance on stabilizing operations, 
-        managing cash flow, or pivoting strategy.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    if st.button("Start Recovery & Stabilization", key="recovery", use_container_width=True):
-        st.switch_page("pages/recovery_stabilization.py")
+pathway_list = list(PATHWAYS.items())
 
+# First column: Idea Exploration and Recovery
+with col1:
+    for pathway_key in ["idea_exploration", "recovery_stabilization"]:
+        pathway = PATHWAYS[pathway_key]
+        st.markdown(f"""
+        <div class="pathway-card">
+            <h3>{pathway['icon']} {pathway['name']}</h3>
+            <p>{pathway['short_description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            st.switch_page(pathway['page_file'])
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+
+# Second column: Loan Readiness and Business Transition
 with col2:
-    st.markdown("""
-    <div class="pathway-card">
-        <h3>💰 Loan Readiness</h3>
-        <p>You need financing for your business and want to prepare a strong application with 
-        clear financials and a compelling case.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    if st.button("Start Loan Readiness", key="loan", use_container_width=True):
-        st.switch_page("pages/loan_readiness.py")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div class="pathway-card">
-        <h3>🔄 Business Transition</h3>
-        <p>You're considering selling, transferring ownership, or closing your business and 
-        need structured guidance through the process.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    if st.button("Start Business Transition", key="transition", use_container_width=True):
-        st.switch_page("pages/business_transition.py")
+    for pathway_key in ["loan_readiness", "business_transition"]:
+        pathway = PATHWAYS[pathway_key]
+        st.markdown(f"""
+        <div class="pathway-card">
+            <h3>{pathway['icon']} {pathway['name']}</h3>
+            <p>{pathway['short_description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            st.switch_page(pathway['page_file'])
+        
+        st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -190,11 +203,15 @@ st.markdown("""
 
 Each pathway follows a structured approach:
 
-1. **Learn** – Access curated resources and guidance specific to your situation
-2. **Work** – Complete a focused workbook to organize your thoughts and data
-3. **Submit** – Share your completed work with your advisor before the meeting
-4. **Schedule** – Book your advisory session when you're ready
+1. **Business Basics** – Review foundational concepts to build shared understanding
+2. **Learn** – Access curated resources and guidance specific to your situation
+3. **Work** – Complete a focused workbook to organize your thoughts and data
+4. **Submit** – Share your completed work with your advisor before the meeting
+5. **Schedule** – Book your advisory session when you're ready
 
 This approach ensures your time with an advisor is focused on strategy, problem-solving, and action planning 
 rather than basic information gathering.
 """)
+
+# Footer
+render_footer()

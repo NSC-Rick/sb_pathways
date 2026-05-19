@@ -1,4 +1,11 @@
 import streamlit as st
+from pathway_config import PATHWAYS
+from components.pathway_header import render_pathway_header, render_what_to_expect, render_pathway_flow
+from components.section_divider import render_section_divider, render_section_header
+from components.resource_card import render_resource_card, render_video_placeholder, render_workbook_card
+from components.schedule_section import render_schedule_section
+from components.business_basics import render_business_basics
+from components.footer import render_footer
 
 # Page configuration
 st.set_page_config(
@@ -7,61 +14,30 @@ st.set_page_config(
     layout="wide"
 )
 
-# Apply consistent styling
-st.markdown("""
-    <style>
-    .main {
-        padding: 2rem;
-    }
-    
-    .section-divider {
-        border-top: 2px solid #E1E8ED;
-        margin: 3rem 0;
-    }
-    
-    .section-header {
-        color: #4A90E2;
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-    }
-    
-    .video-placeholder {
-        background-color: #F7F9FC;
-        border: 2px dashed #4A90E2;
-        border-radius: 8px;
-        padding: 3rem;
-        text-align: center;
-        color: #7F8C8D;
-        margin: 1rem 0;
-    }
-    
-    .resource-box {
-        background-color: #F7F9FC;
-        border-left: 4px solid #4A90E2;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-radius: 4px;
-    }
-    
-    .workbook-box {
-        background-color: #E8F4F8;
-        border: 1px solid #4A90E2;
-        border-radius: 8px;
-        padding: 2rem;
-        margin: 1rem 0;
-    }
-    </style>
-""", unsafe_allow_html=True)
+# Get pathway configuration
+pathway = PATHWAYS["loan_readiness"]
 
-# Header
-st.title("💰 Loan Readiness Pathway")
-st.markdown("**Prepare a compelling loan application with organized financials and clear business case.**")
+# Render pathway header
+render_pathway_header(
+    pathway["icon"],
+    pathway["name"],
+    "Prepare a compelling loan application with organized financials and clear business case.",
+    pathway["estimated_time"]
+)
 
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+# Render what to expect
+render_what_to_expect()
+
+# Render pathway flow
+render_pathway_flow("Welcome")
+
+render_section_divider()
+
+# Business Basics Foundation Layer
+render_business_basics()
 
 # Section 1: Welcome
-st.markdown('<p class="section-header">Welcome</p>', unsafe_allow_html=True)
+render_section_header("Welcome")
 
 st.markdown("""
 This pathway is designed for business owners who need financing and want to:
@@ -75,82 +51,71 @@ and a clear understanding of your financing needs.
 """)
 
 # Video placeholder
-st.markdown("""
-<div class="video-placeholder">
-    <h3>📹 Introduction Video</h3>
-    <p>Video content will be embedded here</p>
-    <p style="font-size: 0.9rem; margin-top: 1rem;">Duration: ~7 minutes</p>
-</div>
-""", unsafe_allow_html=True)
+render_video_placeholder("Introduction Video", "7 minutes")
 
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+render_section_divider()
 
 # Section 2: Learn
-st.markdown('<p class="section-header">Learn</p>', unsafe_allow_html=True)
+render_section_header("Learn")
 
 st.markdown("Review these resources to understand the loan application process and lender expectations.")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""
-    <div class="resource-box">
-        <h4>📚 Essential Reading</h4>
-        <ul>
-            <li>Understanding Loan Types and Terms</li>
-            <li>What Lenders Look For</li>
-            <li>Preparing Financial Statements</li>
-            <li>Building Your Business Case</li>
-        </ul>
-        <p><em>Placeholder for resource links</em></p>
-    </div>
-    """, unsafe_allow_html=True)
+    render_resource_card(
+        "Essential Reading",
+        None,
+        "info",
+        [
+            "Understanding Loan Types and Terms",
+            "What Lenders Look For",
+            "Preparing Financial Statements",
+            "Building Your Business Case"
+        ]
+    )
 
 with col2:
-    st.markdown("""
-    <div class="resource-box">
-        <h4>🎥 Video Resources</h4>
-        <ul>
-            <li>Loan Application Overview (10 min)</li>
-            <li>Financial Documentation Checklist (8 min)</li>
-            <li>Common Application Mistakes (6 min)</li>
-        </ul>
-        <p><em>Placeholder for video links</em></p>
-    </div>
-    """, unsafe_allow_html=True)
+    render_resource_card(
+        "Video Resources",
+        None,
+        "video",
+        [
+            "Loan Application Overview (10 min)",
+            "Financial Documentation Checklist (8 min)",
+            "Common Application Mistakes (6 min)"
+        ]
+    )
 
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+render_section_divider()
 
 # Section 3: Work
-st.markdown('<p class="section-header">Work</p>', unsafe_allow_html=True)
+render_section_header("Work")
 
 st.markdown("""
 Complete the Loan Readiness Workbook to organize your financial information, clarify your needs, 
 and prepare your business case. This workbook will help you identify any gaps before applying.
 """)
 
-st.markdown("""
-<div class="workbook-box">
-    <h3>📋 Loan Readiness Workbook</h3>
-    <p>This workbook includes sections on:</p>
-    <ul>
-        <li>Loan amount and use of funds</li>
-        <li>Financial history and projections</li>
-        <li>Collateral and personal guarantees</li>
-        <li>Business plan summary</li>
-        <li>Document checklist</li>
-    </ul>
-    <p style="margin-top: 1.5rem;"><strong>Estimated time:</strong> 3-4 hours</p>
-</div>
-""", unsafe_allow_html=True)
+render_workbook_card(
+    "Loan Readiness Workbook",
+    [
+        "Loan amount and use of funds",
+        "Financial history and projections",
+        "Collateral and personal guarantees",
+        "Business plan summary",
+        "Document checklist"
+    ],
+    "3-4 hours"
+)
 
 st.button("📥 Download Workbook (PDF)", use_container_width=True, disabled=True)
 st.caption("Workbook download will be available here")
 
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+render_section_divider()
 
 # Section 4: Submit
-st.markdown('<p class="section-header">Submit</p>', unsafe_allow_html=True)
+render_section_header("Submit")
 
 st.markdown("""
 Once you've completed your workbook, submit it here along with any supporting financial documents. 
@@ -166,25 +131,20 @@ st.file_uploader("Additional documents", type=['pdf', 'xlsx', 'docx'], accept_mu
 st.text_area("Additional notes for your advisor", height=100, disabled=True,
              placeholder="e.g., I'm unsure about how to value my equipment for collateral...")
 
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+render_section_divider()
 
 # Section 5: Schedule
-st.markdown('<p class="section-header">Schedule</p>', unsafe_allow_html=True)
+render_section_header("Schedule")
 
-st.markdown("""
-Ready to meet with an advisor? Schedule your session below. We recommend completing all previous steps 
-before scheduling to maximize the value of your meeting.
-""")
+render_schedule_section()
 
-st.info("✅ **Preparation Checklist:**\n- Reviewed learning resources\n- Completed workbook\n- Gathered financial documents\n- Submitted materials to advisor")
-
-st.button("📅 Schedule Advisory Session", use_container_width=True, disabled=True)
-st.caption("Scheduling integration will be available here")
-
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+render_section_divider()
 
 # Navigation
 col1, col2, col3 = st.columns([1, 1, 1])
 with col1:
     if st.button("← Back to Home", use_container_width=True):
         st.switch_page("app.py")
+
+# Footer
+render_footer()

@@ -137,18 +137,6 @@ and focused options for moving forward.
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Pivot vs. Persevere Video Section
-    if VIDEO_LINKS["recovery_pivot_persevere"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["recovery_pivot_persevere"],
-            section_title="Pivot vs. Persevere (8 min)",
-            intro_text="This video explores the critical decision many business owners face: when to pivot your approach versus when to persevere through challenges.",
-            subtitle="Understanding this decision framework can help you make clearer strategic choices.",
-            portrait=True  # Portrait mode for advisor-centered video
-        )
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
     # Video Resources Section
     st.markdown("### Video Resources")
     st.caption("These additional resources provide practical perspectives on stabilization, decision-making, and financial recovery.")
@@ -156,6 +144,12 @@ and focused options for moving forward.
     
     # Educational video resource list
     educational_videos = [
+        {
+            "title": "Pivot vs. Persevere",
+            "duration": "8 min",
+            "description": "Perspective from Rick on knowing when to pivot versus persevere during periods of business stress and uncertainty.",
+            "url": VIDEO_LINKS["recovery_pivot_persevere"]
+        },
         {
             "title": "Business Turnaround Strategies",
             "duration": "9 min",

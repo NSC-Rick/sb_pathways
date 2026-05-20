@@ -8,6 +8,7 @@ from views.idea_exploration import render_idea_exploration
 from views.loan_readiness import render_loan_readiness
 from views.recovery_stabilization import render_recovery_stabilization
 from views.business_transition import render_business_transition
+from views.pathway_placeholder import render_pathway_placeholder
 
 # Page configuration
 st.set_page_config(
@@ -135,7 +136,11 @@ st.markdown("""
 if "current_page" not in st.session_state:
     st.session_state.current_page = "home"
 
-# Sidebar navigation with clean unbranded structure
+# Initialize session state for supplemental pathways collapse
+if "show_supplemental" not in st.session_state:
+    st.session_state.show_supplemental = False
+
+# Sidebar navigation with hierarchical structure
 with st.sidebar:
     # Header
     st.title("🎯 Small Business Pathways")
@@ -147,14 +152,39 @@ with st.sidebar:
         st.session_state.current_page = "home"
         st.rerun()
     
+    st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
+    
+    # Core Pathways Section
+    st.markdown("**Core Pathways**")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Pathway buttons using config
-    for pathway_key, pathway_data in PATHWAYS.items():
+    # Core pathway buttons
+    from pathway_config import CORE_PATHWAYS
+    for pathway_key, pathway_data in CORE_PATHWAYS.items():
         button_label = f"{pathway_data['icon']} {pathway_data['name']}"
         if st.button(button_label, use_container_width=True, key=f"nav_{pathway_key}"):
             st.session_state.current_page = pathway_key
             st.rerun()
+    
+    st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
+    
+    # Supplemental Pathways Section (Collapsible)
+    from pathway_config import SUPPLEMENTAL_PATHWAYS
+    
+    # Toggle button for supplemental pathways
+    toggle_icon = "▼" if st.session_state.show_supplemental else "▶"
+    if st.button(f"{toggle_icon} Supplemental Pathways", use_container_width=True, key="toggle_supplemental"):
+        st.session_state.show_supplemental = not st.session_state.show_supplemental
+        st.rerun()
+    
+    # Show supplemental pathways if expanded
+    if st.session_state.show_supplemental:
+        st.markdown("<br>", unsafe_allow_html=True)
+        for pathway_key, pathway_data in SUPPLEMENTAL_PATHWAYS.items():
+            button_label = f"{pathway_data['icon']} {pathway_data['name']}"
+            if st.button(button_label, use_container_width=True, key=f"nav_{pathway_key}"):
+                st.session_state.current_page = pathway_key
+                st.rerun()
     
     st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
@@ -170,6 +200,7 @@ with st.sidebar:
 # Route to appropriate view based on session state
 if st.session_state.current_page == "home":
     render_home()
+# Core pathways with full views
 elif st.session_state.current_page == "idea_exploration":
     render_idea_exploration()
 elif st.session_state.current_page == "loan_readiness":
@@ -178,6 +209,50 @@ elif st.session_state.current_page == "recovery_stabilization":
     render_recovery_stabilization()
 elif st.session_state.current_page == "business_transition":
     render_business_transition()
+# Core pathways with placeholder views
+elif st.session_state.current_page == "startup_launch":
+    pathway = PATHWAYS["startup_launch"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "marketing_foundation":
+    pathway = PATHWAYS["marketing_foundation"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "growth_planning":
+    pathway = PATHWAYS["growth_planning"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "financial_foundations":
+    pathway = PATHWAYS["financial_foundations"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "solo_consultant_path":
+    pathway = PATHWAYS["solo_consultant_path"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+# Supplemental pathways with placeholder views
+elif st.session_state.current_page == "ai_for_small_business":
+    pathway = PATHWAYS["ai_for_small_business"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "financial_projections":
+    pathway = PATHWAYS["financial_projections"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "business_planning":
+    pathway = PATHWAYS["business_planning"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "cash_flow_basics":
+    pathway = PATHWAYS["cash_flow_basics"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "marketing_fundamentals":
+    pathway = PATHWAYS["marketing_fundamentals"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "time_priority_management":
+    pathway = PATHWAYS["time_priority_management"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "owner_sustainability":
+    pathway = PATHWAYS["owner_sustainability"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "digital_readiness":
+    pathway = PATHWAYS["digital_readiness"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
+elif st.session_state.current_page == "pricing_profitability":
+    pathway = PATHWAYS["pricing_profitability"]
+    render_pathway_placeholder(pathway["name"], pathway["icon"], pathway["short_description"], pathway["estimated_time"])
 else:
     # Fallback to home if unknown page
     st.session_state.current_page = "home"

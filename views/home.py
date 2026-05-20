@@ -4,7 +4,7 @@ Renders the main landing page with pathway selection
 """
 
 import streamlit as st
-from pathway_config import PATHWAYS
+from pathway_config import CORE_PATHWAYS, SUPPLEMENTAL_PATHWAYS
 from components.footer import render_footer
 
 
@@ -25,15 +25,20 @@ def render_home():
     Each pathway is designed to help you arrive with clarity, focus, and actionable questions.
     """)
     
-    st.markdown("## Choose Your Pathway")
+    st.markdown("## Core Pathways")
+    st.caption("Business-state pathways for key transitions and challenges")
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    # Pathway cards in two columns using config
+    # Core pathway cards in two columns
     col1, col2 = st.columns(2)
     
-    # First column: Idea Exploration and Recovery
+    core_pathway_keys = list(CORE_PATHWAYS.keys())
+    mid_point = (len(core_pathway_keys) + 1) // 2
+    
+    # First column
     with col1:
-        for pathway_key in ["idea_exploration", "recovery_stabilization"]:
-            pathway = PATHWAYS[pathway_key]
+        for pathway_key in core_pathway_keys[:mid_point]:
+            pathway = CORE_PATHWAYS[pathway_key]
             st.markdown(f"""
             <div class="pathway-card">
                 <h3>{pathway['icon']} {pathway['name']}</h3>
@@ -47,10 +52,10 @@ def render_home():
             
             st.markdown("<br>", unsafe_allow_html=True)
     
-    # Second column: Loan Readiness and Business Transition
+    # Second column
     with col2:
-        for pathway_key in ["loan_readiness", "business_transition"]:
-            pathway = PATHWAYS[pathway_key]
+        for pathway_key in core_pathway_keys[mid_point:]:
+            pathway = CORE_PATHWAYS[pathway_key]
             st.markdown(f"""
             <div class="pathway-card">
                 <h3>{pathway['icon']} {pathway['name']}</h3>
@@ -59,6 +64,53 @@ def render_home():
             """, unsafe_allow_html=True)
             
             if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+                st.session_state.current_page = pathway_key
+                st.rerun()
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    # Supplemental pathways section
+    st.markdown("## Supplemental Pathways")
+    st.caption("Focused capability modules for specific skills and topics")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Supplemental pathway cards in two columns
+    col1, col2 = st.columns(2)
+    
+    supplemental_pathway_keys = list(SUPPLEMENTAL_PATHWAYS.keys())
+    mid_point_supp = (len(supplemental_pathway_keys) + 1) // 2
+    
+    # First column
+    with col1:
+        for pathway_key in supplemental_pathway_keys[:mid_point_supp]:
+            pathway = SUPPLEMENTAL_PATHWAYS[pathway_key]
+            st.markdown(f"""
+            <div class="pathway-card">
+                <h3>{pathway['icon']} {pathway['name']}</h3>
+                <p>{pathway['short_description']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+                st.session_state.current_page = pathway_key
+                st.rerun()
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Second column
+    with col2:
+        for pathway_key in supplemental_pathway_keys[mid_point_supp:]:
+            pathway = SUPPLEMENTAL_PATHWAYS[pathway_key]
+            st.markdown(f"""
+            <div class="pathway-card">
+                <h3>{pathway['icon']} {pathway['name']}</h3>
+                <p>{pathway['short_description']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
                 st.session_state.current_page = pathway_key
                 st.rerun()
             

@@ -6,7 +6,7 @@ Provides consistent, calm, and intentional video presentation across all pathway
 import streamlit as st
 
 
-def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
+def render_video_embed(video_url, title=None, subtitle=None, max_width=750, portrait=False):
     """
     Render an embedded video with improved framing and responsive design.
     
@@ -15,6 +15,7 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
         title (str, optional): Title to display above the video
         subtitle (str, optional): Supportive text to display below the video
         max_width (int, optional): Maximum width of the video container in pixels (default: 750)
+        portrait (bool, optional): If True, optimizes layout for portrait-oriented videos (default: False)
     """
     
     if not video_url:
@@ -24,12 +25,26 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
     if title:
         st.markdown(f"### {title}")
     
+    # Determine optimal sizing based on video orientation
+    if portrait:
+        # Portrait mode: narrower container, taller aspect ratio
+        container_max_width = min(max_width, 580)  # Cap at 580px for portrait
+        aspect_padding = 177.78  # 9:16 aspect ratio for portrait videos
+        iframe_height = 850  # Taller height for portrait videos
+        background_color = "#F7F9FC"  # Soft background to reduce black sidebar impact
+    else:
+        # Landscape mode: standard widescreen layout
+        container_max_width = max_width
+        aspect_padding = 56.25  # 16:9 aspect ratio for landscape videos
+        iframe_height = 500
+        background_color = "#F7F9FC"
+    
     # Responsive video container with improved framing
     # Uses centered layout with max-width constraint and soft styling
     video_html = f"""
     <style>
         .video-container {{
-            max-width: {max_width}px;
+            max-width: {container_max_width}px;
             margin: 1.5rem auto;
             padding: 0;
         }}
@@ -38,18 +53,18 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
             background: #FFFFFF;
             border: 1px solid #E1E8ED;
             border-radius: 12px;
-            padding: 1rem;
+            padding: {'0.75rem' if portrait else '1rem'};
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }}
         
         .video-frame {{
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio fallback */
+            padding-bottom: {aspect_padding}%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
-            background: #F7F9FC;
+            background: {background_color};
         }}
         
         .video-frame iframe {{
@@ -79,6 +94,10 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
             .video-wrapper {{
                 padding: 0.75rem;
             }}
+            
+            .video-frame {{
+                padding-bottom: {'133.33%' if portrait else '56.25%'}; /* Adjust aspect ratio for mobile */
+            }}
         }}
     </style>
     
@@ -97,8 +116,8 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
     </div>
     """
     
-    # Render the video
-    st.components.v1.html(video_html, height=500)
+    # Render the video with appropriate height
+    st.components.v1.html(video_html, height=iframe_height)
     
     # Subtitle section (if provided)
     if subtitle:
@@ -106,7 +125,7 @@ def render_video_embed(video_url, title=None, subtitle=None, max_width=750):
 
 
 def render_video_section(video_url, section_title="Introduction", 
-                         intro_text=None, subtitle=None, max_width=750):
+                         intro_text=None, subtitle=None, max_width=750, portrait=False):
     """
     Render a complete video section with title, intro text, video, and subtitle.
     
@@ -116,6 +135,7 @@ def render_video_section(video_url, section_title="Introduction",
         intro_text (str, optional): Supportive text before the video
         subtitle (str, optional): Supportive text after the video
         max_width (int): Maximum width of the video container in pixels
+        portrait (bool): If True, optimizes layout for portrait-oriented videos (default: False)
     """
     
     # Section header
@@ -134,7 +154,8 @@ def render_video_section(video_url, section_title="Introduction",
         video_url=video_url,
         title=None,  # Title already shown above
         subtitle=subtitle,
-        max_width=max_width
+        max_width=max_width,
+        portrait=portrait
     )
     
     st.markdown("<br>", unsafe_allow_html=True)

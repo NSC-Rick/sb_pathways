@@ -106,6 +106,44 @@ def render_loan_readiness():
             ]
         )
     
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Additional Learning Resources Section
+    st.markdown("### Additional Learning Resources")
+    st.caption("These additional resources provide practical perspectives and foundational guidance related to this pathway.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 1: What Lenders Look For in a Business Loan
+    if VIDEO_LINKS["loan_lenders"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["loan_lenders"],
+            section_title="What Lenders Look For in a Business Loan",
+            intro_text="Understanding how lenders evaluate business financing requests.",
+            subtitle=None
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 2: Small Business Financial Statements Explained
+    if VIDEO_LINKS["loan_financials"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["loan_financials"],
+            section_title="Small Business Financial Statements Explained",
+            intro_text="A foundational overview of key business financial statements.",
+            subtitle=None
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 3: Cash Flow Basics for Small Business
+    if VIDEO_LINKS["loan_cashflow"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["loan_cashflow"],
+            section_title="Cash Flow Basics for Small Business",
+            intro_text="Practical cash flow concepts to support financial readiness.",
+            subtitle=None
+        )
+    
     render_section_divider()
     
     # Section 3: Work

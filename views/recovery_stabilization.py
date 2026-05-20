@@ -142,7 +142,35 @@ and focused options for moving forward.
             video_url=VIDEO_LINKS["recovery_pivot_persevere"],
             section_title="Pivot vs. Persevere (8 min)",
             intro_text="This video explores the critical decision many business owners face: when to pivot your approach versus when to persevere through challenges.",
-            subtitle="Understanding this decision framework can help you make clearer strategic choices."
+            subtitle="Understanding this decision framework can help you make clearer strategic choices.",
+            portrait=True  # Portrait mode for advisor-centered video
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Additional Stabilization Resources Section
+    st.markdown("### Additional Stabilization Resources")
+    st.caption("These additional resources provide practical perspectives on stabilization, decision-making, and financial recovery.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 1: Business Turnaround Strategies
+    if VIDEO_LINKS["recovery_turnaround"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["recovery_turnaround"],
+            section_title="Business Turnaround Strategies",
+            intro_text="Practical approaches for stabilizing a struggling business, identifying priorities, and creating a structured recovery path.",
+            subtitle=None
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 2: Cash Flow Management for Small Businesses
+    if VIDEO_LINKS["recovery_cashflow"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["recovery_cashflow"],
+            section_title="Cash Flow Management for Small Businesses",
+            intro_text="A practical overview of cash flow management concepts and strategies for improving financial stability.",
+            subtitle=None
         )
     
     render_section_divider()

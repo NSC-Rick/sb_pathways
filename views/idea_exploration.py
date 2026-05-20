@@ -105,6 +105,44 @@ def render_idea_exploration():
             ]
         )
     
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Additional Learning Resources Section
+    st.markdown("### Additional Learning Resources")
+    st.caption("These additional resources provide practical perspectives and foundational guidance related to this pathway.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 1: How to Validate a Business Idea
+    if VIDEO_LINKS["idea_validate"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["idea_validate"],
+            section_title="How to Validate a Business Idea",
+            intro_text="A practical introduction to testing and validating early-stage business concepts.",
+            subtitle=None
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 2: Finding Product Market Fit
+    if VIDEO_LINKS["idea_product_fit"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["idea_product_fit"],
+            section_title="Finding Product Market Fit",
+            intro_text="Understanding customer fit, demand, and market alignment for new ideas.",
+            subtitle=None
+        )
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Video 3: Start Small and Test Your Business Idea
+    if VIDEO_LINKS["idea_test_small"]:
+        render_video_section(
+            video_url=VIDEO_LINKS["idea_test_small"],
+            section_title="Start Small and Test Your Business Idea",
+            intro_text="Exploring practical ways to test ideas thoughtfully before scaling.",
+            subtitle=None
+        )
+    
     render_section_divider()
     
     # Section 3: Work

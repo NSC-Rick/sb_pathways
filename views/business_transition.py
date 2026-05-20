@@ -13,6 +13,7 @@ from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
 from components.video_embed import render_video_section
+from components.video_resource_list import render_video_resource_list
 
 
 def render_business_transition():
@@ -109,41 +110,34 @@ def render_business_transition():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Additional Learning Resources Section
-    st.markdown("### Additional Learning Resources")
+    # Video Resources Section
+    st.markdown("### Video Resources")
     st.caption("These additional resources provide practical perspectives and foundational guidance related to this pathway.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Video 1: Preparing a Business for Sale
-    if VIDEO_LINKS["transition_sale"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["transition_sale"],
-            section_title="Preparing a Business for Sale",
-            intro_text="Key concepts involved in preparing a business for transition or sale.",
-            subtitle=None
-        )
+    # Educational video resource list
+    educational_videos = [
+        {
+            "title": "Preparing a Business for Sale",
+            "duration": "9 min",
+            "description": "Key concepts involved in preparing a business for transition or sale.",
+            "url": VIDEO_LINKS["transition_sale"]
+        },
+        {
+            "title": "Small Business Succession Planning",
+            "duration": "8 min",
+            "description": "An overview of succession planning strategies for small businesses.",
+            "url": VIDEO_LINKS["transition_succession"]
+        },
+        {
+            "title": "How to Increase Business Transferability",
+            "duration": "7 min",
+            "description": "Understanding how to improve business transferability and continuity.",
+            "url": VIDEO_LINKS["transition_transferability"]
+        }
+    ]
     
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 2: Small Business Succession Planning
-    if VIDEO_LINKS["transition_succession"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["transition_succession"],
-            section_title="Small Business Succession Planning",
-            intro_text="An overview of succession planning strategies for small businesses.",
-            subtitle=None
-        )
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 3: How to Increase Business Transferability
-    if VIDEO_LINKS["transition_transferability"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["transition_transferability"],
-            section_title="How to Increase Business Transferability",
-            intro_text="Understanding how to improve business transferability and continuity.",
-            subtitle=None
-        )
+    render_video_resource_list(educational_videos)
     
     render_section_divider()
     

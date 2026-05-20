@@ -13,6 +13,7 @@ from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
 from components.video_embed import render_video_section
+from components.video_resource_list import render_video_resource_list
 
 
 def render_loan_readiness():
@@ -108,41 +109,34 @@ def render_loan_readiness():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Additional Learning Resources Section
-    st.markdown("### Additional Learning Resources")
+    # Video Resources Section
+    st.markdown("### Video Resources")
     st.caption("These additional resources provide practical perspectives and foundational guidance related to this pathway.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Video 1: What Lenders Look For in a Business Loan
-    if VIDEO_LINKS["loan_lenders"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["loan_lenders"],
-            section_title="What Lenders Look For in a Business Loan",
-            intro_text="Understanding how lenders evaluate business financing requests.",
-            subtitle=None
-        )
+    # Educational video resource list
+    educational_videos = [
+        {
+            "title": "What Lenders Look For in a Business Loan",
+            "duration": "8 min",
+            "description": "Understanding how lenders evaluate business financing requests.",
+            "url": VIDEO_LINKS["loan_lenders"]
+        },
+        {
+            "title": "Small Business Financial Statements Explained",
+            "duration": "10 min",
+            "description": "A foundational overview of key business financial statements.",
+            "url": VIDEO_LINKS["loan_financials"]
+        },
+        {
+            "title": "Cash Flow Basics for Small Business",
+            "duration": "7 min",
+            "description": "Practical cash flow concepts to support financial readiness.",
+            "url": VIDEO_LINKS["loan_cashflow"]
+        }
+    ]
     
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 2: Small Business Financial Statements Explained
-    if VIDEO_LINKS["loan_financials"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["loan_financials"],
-            section_title="Small Business Financial Statements Explained",
-            intro_text="A foundational overview of key business financial statements.",
-            subtitle=None
-        )
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 3: Cash Flow Basics for Small Business
-    if VIDEO_LINKS["loan_cashflow"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["loan_cashflow"],
-            section_title="Cash Flow Basics for Small Business",
-            intro_text="Practical cash flow concepts to support financial readiness.",
-            subtitle=None
-        )
+    render_video_resource_list(educational_videos)
     
     render_section_divider()
     

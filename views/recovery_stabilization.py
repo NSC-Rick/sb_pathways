@@ -13,6 +13,7 @@ from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
 from components.video_embed import render_video_section
+from components.video_resource_list import render_video_resource_list
 
 
 def render_recovery_stabilization():
@@ -148,30 +149,28 @@ and focused options for moving forward.
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Additional Stabilization Resources Section
-    st.markdown("### Additional Stabilization Resources")
+    # Video Resources Section
+    st.markdown("### Video Resources")
     st.caption("These additional resources provide practical perspectives on stabilization, decision-making, and financial recovery.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Video 1: Business Turnaround Strategies
-    if VIDEO_LINKS["recovery_turnaround"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["recovery_turnaround"],
-            section_title="Business Turnaround Strategies",
-            intro_text="Practical approaches for stabilizing a struggling business, identifying priorities, and creating a structured recovery path.",
-            subtitle=None
-        )
+    # Educational video resource list
+    educational_videos = [
+        {
+            "title": "Business Turnaround Strategies",
+            "duration": "9 min",
+            "description": "Practical approaches for stabilizing a struggling business, identifying priorities, and creating a structured recovery path.",
+            "url": VIDEO_LINKS["recovery_turnaround"]
+        },
+        {
+            "title": "Cash Flow Management for Small Businesses",
+            "duration": "7 min",
+            "description": "A practical overview of cash flow management concepts and strategies for improving financial stability.",
+            "url": VIDEO_LINKS["recovery_cashflow"]
+        }
+    ]
     
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 2: Cash Flow Management for Small Businesses
-    if VIDEO_LINKS["recovery_cashflow"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["recovery_cashflow"],
-            section_title="Cash Flow Management for Small Businesses",
-            intro_text="A practical overview of cash flow management concepts and strategies for improving financial stability.",
-            subtitle=None
-        )
+    render_video_resource_list(educational_videos)
     
     render_section_divider()
     

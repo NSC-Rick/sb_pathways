@@ -13,6 +13,7 @@ from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
 from components.video_embed import render_video_section
+from components.video_resource_list import render_video_resource_list
 
 
 def render_idea_exploration():
@@ -107,41 +108,34 @@ def render_idea_exploration():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Additional Learning Resources Section
-    st.markdown("### Additional Learning Resources")
+    # Video Resources Section
+    st.markdown("### Video Resources")
     st.caption("These additional resources provide practical perspectives and foundational guidance related to this pathway.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Video 1: How to Validate a Business Idea
-    if VIDEO_LINKS["idea_validate"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["idea_validate"],
-            section_title="How to Validate a Business Idea",
-            intro_text="A practical introduction to testing and validating early-stage business concepts.",
-            subtitle=None
-        )
+    # Educational video resource list
+    educational_videos = [
+        {
+            "title": "How to Validate a Business Idea",
+            "duration": "8 min",
+            "description": "A practical introduction to testing and validating early-stage business concepts.",
+            "url": VIDEO_LINKS["idea_validate"]
+        },
+        {
+            "title": "Finding Product Market Fit",
+            "duration": "7 min",
+            "description": "Understanding customer fit, demand, and market alignment for new ideas.",
+            "url": VIDEO_LINKS["idea_product_fit"]
+        },
+        {
+            "title": "Start Small and Test Your Business Idea",
+            "duration": "6 min",
+            "description": "Exploring practical ways to test ideas thoughtfully before scaling.",
+            "url": VIDEO_LINKS["idea_test_small"]
+        }
+    ]
     
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 2: Finding Product Market Fit
-    if VIDEO_LINKS["idea_product_fit"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["idea_product_fit"],
-            section_title="Finding Product Market Fit",
-            intro_text="Understanding customer fit, demand, and market alignment for new ideas.",
-            subtitle=None
-        )
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Video 3: Start Small and Test Your Business Idea
-    if VIDEO_LINKS["idea_test_small"]:
-        render_video_section(
-            video_url=VIDEO_LINKS["idea_test_small"],
-            section_title="Start Small and Test Your Business Idea",
-            intro_text="Exploring practical ways to test ideas thoughtfully before scaling.",
-            subtitle=None
-        )
+    render_video_resource_list(educational_videos)
     
     render_section_divider()
     

@@ -11,7 +11,7 @@ from views.business_transition import render_business_transition
 
 # Page configuration
 st.set_page_config(
-    page_title="Client Readiness Pathways",
+    page_title="Small Business Pathways",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -138,7 +138,7 @@ if "current_page" not in st.session_state:
 # Sidebar navigation with clean unbranded structure
 with st.sidebar:
     # Header
-    st.title("🎯 Client Pathways")
+    st.title("🎯 Small Business Pathways")
     st.caption("Prepare. Focus. Move Forward.")
     st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     

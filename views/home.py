@@ -1,5 +1,5 @@
 """
-Home view for Client Readiness Pathways
+Home view for Small Business Pathways
 Renders the main landing page with pathway selection
 """
 
@@ -12,14 +12,14 @@ def render_home():
     """Render the home page with pathway selection"""
     
     # Main content
-    st.title("Client Readiness Pathways")
+    st.title("Small Business Pathways")
     st.markdown('<p class="subtitle">Structured preparation before meaningful advising.</p>', unsafe_allow_html=True)
     
     st.markdown("---")
     
     # Introduction
     st.markdown("""
-    Welcome to the Client Readiness Pathways system. This resource helps you prepare for your advisory meeting 
+    Welcome to Small Business Pathways. This resource helps you prepare for your advisory meeting 
     so you can make the most of your time together.
     
     Each pathway is designed to help you arrive with clarity, focus, and actionable questions.

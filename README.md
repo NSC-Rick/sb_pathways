@@ -1,10 +1,10 @@
-# Client Readiness Pathways
+# Small Business Pathways
 
-A lightweight, unbranded Streamlit prototype designed to help clients prepare for meaningful advisory meetings through structured learning, reflection, worksheets, and pathway-specific preparation.
+A lightweight, unbranded Streamlit prototype designed to help small business owners prepare for meaningful advisory meetings through structured learning, reflection, worksheets, and pathway-specific preparation.
 
 ## Overview
 
-Client Readiness Pathways is a web application that guides entrepreneurs and business owners through structured preparation before meeting with business advisors. The system improves meeting quality by ensuring clients arrive with clarity, organized information, and focused questions.
+Small Business Pathways is a web application that guides entrepreneurs and business owners through structured preparation before meeting with business advisors. The system improves meeting quality by ensuring clients arrive with clarity, organized information, and focused questions.
 
 ## Pathway Philosophy
 

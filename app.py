@@ -11,6 +11,7 @@ from views.business_transition import render_business_transition
 from views.pathway_placeholder import render_pathway_placeholder
 
 # Page configuration
+# Note: Sidebar state is managed contextually via JavaScript after initial load
 st.set_page_config(
     page_title="Small Business Pathways",
     page_icon="🎯",

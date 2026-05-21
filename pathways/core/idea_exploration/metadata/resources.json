@@ -1,0 +1,85 @@
+{
+  "pathway_key": "idea_exploration",
+  "pathway_name": "Idea Exploration",
+  "pathway_type": "core",
+  "last_updated": "2026-05-20",
+  "version": "1.0",
+  
+  "essential_reading": [
+    {
+      "title": "Validating Your Business Idea",
+      "type": "essential_reading",
+      "filename": "SB_Pathways_Validating_Your_Business_Idea_FINAL.pdf",
+      "description": "Learn practical approaches to testing and validating your business concept before making larger commitments.",
+      "estimated_time": "15-20 minutes",
+      "format": "pdf",
+      "status": "published"
+    },
+    {
+      "title": "Understanding Your Target Customer",
+      "type": "essential_reading",
+      "filename": "SB_Pathways_Understanding_Your_Target_Customer_FINAL.pdf",
+      "description": "Develop clarity on who your customers are, what they need, and how to reach them effectively.",
+      "estimated_time": "15-20 minutes",
+      "format": "pdf",
+      "status": "published"
+    },
+    {
+      "title": "Basic Business Model Fundamentals",
+      "type": "essential_reading",
+      "filename": "SB_Pathways_Basic_Business_Model_Fundamentals_FINAL.pdf",
+      "description": "Understand the core components of a business model and how they work together to create value.",
+      "estimated_time": "15-20 minutes",
+      "format": "pdf",
+      "status": "published"
+    }
+  ],
+  
+  "workbooks": [
+    {
+      "title": "Idea Exploration Workbook",
+      "type": "guided_workbook",
+      "filename": "SB_Pathways_Idea_Exploration_Workbook_FINAL.pdf",
+      "description": "A guided workbook designed to help you thoughtfully explore, test, and refine your business idea before making larger commitments.",
+      "estimated_time": "2-3 hours",
+      "format": "pdf",
+      "sections": [
+        "Business concept description",
+        "Target market analysis",
+        "Competitive landscape",
+        "Revenue model ideas",
+        "Key questions and concerns"
+      ],
+      "status": "published"
+    }
+  ],
+  
+  "videos": {
+    "intro_video": {
+      "title": "Idea Exploration Introduction",
+      "url": "https://www.youtube.com/embed/pt4UtXNwzms",
+      "duration": "5 minutes",
+      "description": "Introduction to the Idea Exploration pathway"
+    },
+    "educational_videos": [
+      {
+        "title": "How to Validate a Business Idea",
+        "url": "https://www.youtube.com/embed/4SLM3j50M7k",
+        "duration": "8 min",
+        "description": "A practical introduction to testing and validating early-stage business concepts."
+      },
+      {
+        "title": "Finding Product Market Fit",
+        "url": "https://www.youtube.com/embed/0LNQxT9LvM0",
+        "duration": "7 min",
+        "description": "Understanding customer fit, demand, and market alignment for new ideas."
+      },
+      {
+        "title": "Start Small and Test Your Business Idea",
+        "url": "https://www.youtube.com/embed/6R6N8mP6xqI",
+        "duration": "6 min",
+        "description": "Exploring practical ways to test ideas thoughtfully before scaling."
+      }
+    ]
+  }
+}

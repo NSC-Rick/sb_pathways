@@ -78,33 +78,64 @@ def render_idea_exploration():
     # Section 2: Learn
     render_section_header("Learn")
     
-    st.markdown("Review these resources to build foundational knowledge before completing your workbook.")
+    st.markdown("Review these curated resources to build foundational knowledge before completing your workbook.")
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    col1, col2 = st.columns(2)
+    # Essential Reading Section
+    st.markdown("### 📚 Essential Reading")
+    st.caption("Advisor-recommended materials to guide your exploration process.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Reading resource cards
+    col1, col2, col3 = st.columns(3)
     
     with col1:
-        render_resource_card(
-            "Essential Reading",
-            None,
-            "info",
-            [
-                "Validating Your Business Idea",
-                "Understanding Your Target Customer",
-                "Basic Business Model Fundamentals"
-            ]
+        st.markdown("""
+        <div class="pathway-card">
+            <h4>📄 Validating Your Business Idea</h4>
+            <p>Learn practical approaches to testing and validating your business concept before making larger commitments.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.download_button(
+            "📥 Download PDF",
+            data=open("pathways/core/idea_exploration/readings/SB_Pathways_Validating_Your_Business_Idea_FINAL.pdf", "rb"),
+            file_name="Validating_Your_Business_Idea.pdf",
+            mime="application/pdf",
+            use_container_width=True
         )
+        st.markdown("<br>", unsafe_allow_html=True)
     
     with col2:
-        render_resource_card(
-            "Video Resources",
-            None,
-            "video",
-            [
-                "Market Research Basics (8 min)",
-                "Defining Your Value Proposition (6 min)",
-                "Common Startup Mistakes (10 min)"
-            ]
+        st.markdown("""
+        <div class="pathway-card">
+            <h4>📄 Understanding Your Target Customer</h4>
+            <p>Develop clarity on who your customers are, what they need, and how to reach them effectively.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.download_button(
+            "📥 Download PDF",
+            data=open("pathways/core/idea_exploration/readings/SB_Pathways_Understanding_Your_Target_Customer_FINAL.pdf", "rb"),
+            file_name="Understanding_Your_Target_Customer.pdf",
+            mime="application/pdf",
+            use_container_width=True
         )
+        st.markdown("<br>", unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div class="pathway-card">
+            <h4>📄 Basic Business Model Fundamentals</h4>
+            <p>Understand the core components of a business model and how they work together to create value.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.download_button(
+            "📥 Download PDF",
+            data=open("pathways/core/idea_exploration/readings/SB_Pathways_Basic_Business_Model_Fundamentals_FINAL.pdf", "rb"),
+            file_name="Basic_Business_Model_Fundamentals.pdf",
+            mime="application/pdf",
+            use_container_width=True
+        )
+        st.markdown("<br>", unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
     
@@ -146,21 +177,40 @@ def render_idea_exploration():
     Complete the Idea Exploration Workbook to organize your thoughts, research, and questions. 
     This workbook will serve as the foundation for your advisory conversation.
     """)
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    render_workbook_card(
-        "Idea Exploration Workbook",
-        [
-            "Business concept description",
-            "Target market analysis",
-            "Competitive landscape",
-            "Revenue model ideas",
-            "Key questions and concerns"
-        ],
-        "2-3 hours"
-    )
+    # Guided Workbook Section
+    st.markdown("### 📝 Guided Workbook")
+    st.caption("A guided workbook designed to help you thoughtfully explore, test, and refine your business idea before making larger commitments.")
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    st.button("📥 Download Workbook (PDF)", use_container_width=True, disabled=True)
-    st.caption("Workbook download will be available here")
+    col1, col2 = st.columns([2, 1])
+    
+    with col1:
+        render_workbook_card(
+            "Idea Exploration Workbook",
+            [
+                "Business concept description",
+                "Target market analysis",
+                "Competitive landscape",
+                "Revenue model ideas",
+                "Key questions and concerns"
+            ],
+            "2-3 hours"
+        )
+    
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.download_button(
+            "📥 Download Workbook",
+            data=open("pathways/core/idea_exploration/workbooks/SB_Pathways_Idea_Exploration_Workbook_FINAL.pdf", "rb"),
+            file_name="Idea_Exploration_Workbook.pdf",
+            mime="application/pdf",
+            use_container_width=True,
+            type="primary"
+        )
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.caption("💡 **Tip:** Print this workbook or complete it digitally before your advisory meeting.")
     
     render_section_divider()
     

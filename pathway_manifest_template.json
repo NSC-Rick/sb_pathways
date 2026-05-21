@@ -1,0 +1,74 @@
+{
+  "pathway_name": "",
+  "pathway_type": "core|supplemental",
+  "pathway_key": "",
+  "icon": "",
+  "description": "",
+  "short_description": "",
+  "estimated_time": "",
+  "target_audience": "",
+  "learning_objectives": [],
+  "prerequisites": [],
+  "sections": [
+    "Welcome",
+    "Learn",
+    "Work",
+    "Submit",
+    "Schedule"
+  ],
+  "videos": {
+    "intro_video": {
+      "title": "",
+      "url": "",
+      "duration": "",
+      "description": ""
+    },
+    "educational_videos": []
+  },
+  "essential_reading": [
+    {
+      "title": "",
+      "url": "",
+      "description": "",
+      "estimated_time": ""
+    }
+  ],
+  "workbooks": [
+    {
+      "title": "",
+      "filename": "",
+      "description": "",
+      "format": "pdf|docx|google_doc"
+    }
+  ],
+  "worksheets": [
+    {
+      "title": "",
+      "filename": "",
+      "description": "",
+      "format": "pdf|docx|fillable_pdf"
+    }
+  ],
+  "tools": [
+    {
+      "title": "",
+      "type": "calculator|template|checklist|guide",
+      "filename": "",
+      "description": ""
+    }
+  ],
+  "advisor_notes": {
+    "preparation_tips": "",
+    "common_challenges": [],
+    "key_discussion_points": [],
+    "follow_up_resources": []
+  },
+  "metadata": {
+    "created_date": "",
+    "last_updated": "",
+    "version": "1.0",
+    "author": "",
+    "status": "draft|review|published",
+    "tags": []
+  }
+}

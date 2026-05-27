@@ -160,7 +160,7 @@ def render_loan_readiness():
         "3-4 hours"
     )
     
-    st.button("📥 Download Workbook (PDF)", use_container_width=True, disabled=True)
+    st.button("📥 Download Workbook (PDF)", width="stretch", disabled=True)
     st.caption("Workbook download will be available here")
     
     render_section_divider()
@@ -190,11 +190,17 @@ def render_loan_readiness():
     render_schedule_section()
     
     render_section_divider()
+    
+    # Continue Exploring section
+    from components.continue_exploring import render_continue_exploring
+    render_continue_exploring("loan_readiness")
+    
+    render_section_divider()
 
     # Navigation
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        if st.button("← Back to Home", use_container_width=True):
+        if st.button("← Back to Home", width="stretch"):
             st.session_state.current_page = "home"
             st.rerun()
     

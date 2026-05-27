@@ -58,7 +58,7 @@ def render_pathway_placeholder(pathway_name, pathway_icon, pathway_description, 
     # Back to home button
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        if st.button("← Back to Home", use_container_width=True):
+        if st.button("← Back to Home", width="stretch"):
             st.session_state.current_page = "home"
             st.rerun()
     

@@ -148,7 +148,7 @@ with st.sidebar:
     st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
     
     # Home button
-    if st.button("🏠 Home", use_container_width=True, key="nav_home"):
+    if st.button("🏠 Home", width="stretch", key="nav_home"):
         st.session_state.current_page = "home"
         st.rerun()
     
@@ -162,7 +162,7 @@ with st.sidebar:
     from pathway_config import CORE_PATHWAYS
     for pathway_key, pathway_data in CORE_PATHWAYS.items():
         button_label = f"{pathway_data['icon']} {pathway_data['name']}"
-        if st.button(button_label, use_container_width=True, key=f"nav_{pathway_key}"):
+        if st.button(button_label, width="stretch", key=f"nav_{pathway_key}"):
             st.session_state.current_page = pathway_key
             st.rerun()
     
@@ -173,7 +173,7 @@ with st.sidebar:
     
     # Toggle button for supplemental pathways
     toggle_icon = "▼" if st.session_state.show_supplemental else "▶"
-    if st.button(f"{toggle_icon} Supplemental Pathways", use_container_width=True, key="toggle_supplemental"):
+    if st.button(f"{toggle_icon} Supplemental Pathways", width="stretch", key="toggle_supplemental"):
         st.session_state.show_supplemental = not st.session_state.show_supplemental
         st.rerun()
     
@@ -182,7 +182,7 @@ with st.sidebar:
         st.markdown("<br>", unsafe_allow_html=True)
         for pathway_key, pathway_data in SUPPLEMENTAL_PATHWAYS.items():
             button_label = f"{pathway_data['icon']} {pathway_data['name']}"
-            if st.button(button_label, use_container_width=True, key=f"nav_{pathway_key}"):
+            if st.button(button_label, width="stretch", key=f"nav_{pathway_key}"):
                 st.session_state.current_page = pathway_key
                 st.rerun()
     

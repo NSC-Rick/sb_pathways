@@ -46,7 +46,7 @@ def render_home():
             </div>
             """, unsafe_allow_html=True)
             
-            if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
                 st.session_state.current_page = pathway_key
                 st.rerun()
             
@@ -63,7 +63,7 @@ def render_home():
             </div>
             """, unsafe_allow_html=True)
             
-            if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
                 st.session_state.current_page = pathway_key
                 st.rerun()
             
@@ -93,7 +93,7 @@ def render_home():
             </div>
             """, unsafe_allow_html=True)
             
-            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
                 st.session_state.current_page = pathway_key
                 st.rerun()
             
@@ -110,7 +110,7 @@ def render_home():
             </div>
             """, unsafe_allow_html=True)
             
-            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", use_container_width=True):
+            if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
                 st.session_state.current_page = pathway_key
                 st.rerun()
             

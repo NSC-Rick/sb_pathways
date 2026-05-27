@@ -190,7 +190,7 @@ and focused options for moving forward.
         "2-3 hours"
     )
     
-    st.button("📥 Download Workbook (PDF)", use_container_width=True, disabled=True)
+    st.button("📥 Download Workbook (PDF)", width="stretch", disabled=True)
     st.caption("Workbook download will be available here")
     
     render_section_divider()
@@ -239,10 +239,16 @@ and focused options for moving forward.
     
     render_section_divider()
     
+    # Continue Exploring section
+    from components.continue_exploring import render_continue_exploring
+    render_continue_exploring("recovery_stabilization")
+    
+    render_section_divider()
+    
     # Navigation
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        if st.button("← Back to Home", use_container_width=True):
+        if st.button("← Back to Home", width="stretch"):
             st.session_state.current_page = "home"
             st.rerun()
     

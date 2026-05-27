@@ -101,7 +101,7 @@ def render_idea_exploration():
             data=open("pathways/core/idea_exploration/readings/SB_Pathways_Validating_Your_Business_Idea_FINAL.pdf", "rb"),
             file_name="Validating_Your_Business_Idea.pdf",
             mime="application/pdf",
-            use_container_width=True
+            width="stretch"
         )
         st.markdown("<br>", unsafe_allow_html=True)
     
@@ -117,7 +117,7 @@ def render_idea_exploration():
             data=open("pathways/core/idea_exploration/readings/SB_Pathways_Understanding_Your_Target_Customer_FINAL.pdf", "rb"),
             file_name="Understanding_Your_Target_Customer.pdf",
             mime="application/pdf",
-            use_container_width=True
+            width="stretch"
         )
         st.markdown("<br>", unsafe_allow_html=True)
     
@@ -133,7 +133,7 @@ def render_idea_exploration():
             data=open("pathways/core/idea_exploration/readings/SB_Pathways_Basic_Business_Model_Fundamentals_FINAL.pdf", "rb"),
             file_name="Basic_Business_Model_Fundamentals.pdf",
             mime="application/pdf",
-            use_container_width=True
+            width="stretch"
         )
         st.markdown("<br>", unsafe_allow_html=True)
     
@@ -206,7 +206,7 @@ def render_idea_exploration():
             data=open("pathways/core/idea_exploration/workbooks/SB_Pathways_Idea_Exploration_Workbook_FINAL.pdf", "rb"),
             file_name="Idea_Exploration_Workbook.pdf",
             mime="application/pdf",
-            use_container_width=True,
+            width="stretch",
             type="primary"
         )
         st.markdown("<br>", unsafe_allow_html=True)
@@ -237,11 +237,17 @@ def render_idea_exploration():
     render_schedule_section()
     
     render_section_divider()
+    
+    # Continue Exploring section
+    from components.continue_exploring import render_continue_exploring
+    render_continue_exploring("idea_exploration")
+    
+    render_section_divider()
 
     # Navigation
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        if st.button("← Back to Home", use_container_width=True):
+        if st.button("← Back to Home", width="stretch"):
             st.session_state.current_page = "home"
             st.rerun()
     

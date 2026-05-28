@@ -5,6 +5,8 @@ Displays related pathway recommendations at the bottom of pathway pages
 
 import streamlit as st
 from pathway_relationships import PATHWAY_RELATIONSHIPS
+from src.core import get_navigation_context
+from pathway_config import CORE_PATHWAYS, SUPPLEMENTAL_PATHWAYS
 
 
 def render_continue_exploring(current_pathway_key):
@@ -14,6 +16,8 @@ def render_continue_exploring(current_pathway_key):
     Args:
         current_pathway_key: The key of the current pathway (e.g., "idea_exploration")
     """
+    nav_context = get_navigation_context()
+    
     # Get related pathways for current pathway
     related_pathways = PATHWAY_RELATIONSHIPS.get(current_pathway_key, [])
     
@@ -49,7 +53,11 @@ def render_continue_exploring(current_pathway_key):
                 width="stretch"
             ):
                 # Navigate to the related pathway
-                st.session_state.current_page = pathway['key']
+                # Determine if it's core or supplemental
+                if pathway['key'] in CORE_PATHWAYS:
+                    nav_context.navigate_to_pathway(pathway['key'])
+                elif pathway['key'] in SUPPLEMENTAL_PATHWAYS:
+                    nav_context.navigate_to_supplemental(pathway['key'])
                 st.rerun()
     
     st.markdown("<br>", unsafe_allow_html=True)

@@ -13,6 +13,7 @@ from components.schedule_section import render_schedule_section
 from components.business_basics import render_business_basics
 from components.footer import render_footer
 from components.video_embed import render_video_section
+from src.core import get_navigation_context
 from components.video_resource_list import render_video_resource_list
 
 
@@ -246,10 +247,11 @@ and focused options for moving forward.
     render_section_divider()
     
     # Navigation
+    nav_context = get_navigation_context()
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
         if st.button("← Back to Home", width="stretch"):
-            st.session_state.current_page = "home"
+            nav_context.navigate_to_home()
             st.rerun()
     
     # Footer

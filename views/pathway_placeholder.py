@@ -5,6 +5,7 @@ Provides a clean "coming soon" experience with pathway metadata
 
 import streamlit as st
 from components.footer import render_footer
+from src.core import get_navigation_context
 
 
 def render_pathway_placeholder(pathway_name, pathway_icon, pathway_description, estimated_time):
@@ -56,10 +57,11 @@ def render_pathway_placeholder(pathway_name, pathway_icon, pathway_description, 
     """)
     
     # Back to home button
+    nav_context = get_navigation_context()
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("← Back to Home", width="stretch"):
-            st.session_state.current_page = "home"
+            nav_context.navigate_to_home()
             st.rerun()
     
     # Footer

@@ -5,11 +5,13 @@ Renders the main landing page with pathway selection
 
 import streamlit as st
 from pathway_config import CORE_PATHWAYS, SUPPLEMENTAL_PATHWAYS
+from src.core import get_navigation_context
 from components.footer import render_footer
 
 
 def render_home():
     """Render the home page with pathway selection"""
+    nav_context = get_navigation_context()
     
     # Main content
     st.title("Small Business Pathways")
@@ -47,7 +49,7 @@ def render_home():
             """, unsafe_allow_html=True)
             
             if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
-                st.session_state.current_page = pathway_key
+                nav_context.navigate_to_pathway(pathway_key)
                 st.rerun()
             
             st.markdown("<br>", unsafe_allow_html=True)
@@ -64,7 +66,7 @@ def render_home():
             """, unsafe_allow_html=True)
             
             if st.button(f"Start {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
-                st.session_state.current_page = pathway_key
+                nav_context.navigate_to_pathway(pathway_key)
                 st.rerun()
             
             st.markdown("<br>", unsafe_allow_html=True)
@@ -94,7 +96,7 @@ def render_home():
             """, unsafe_allow_html=True)
             
             if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
-                st.session_state.current_page = pathway_key
+                nav_context.navigate_to_supplemental(pathway_key)
                 st.rerun()
             
             st.markdown("<br>", unsafe_allow_html=True)
@@ -111,7 +113,7 @@ def render_home():
             """, unsafe_allow_html=True)
             
             if st.button(f"Explore {pathway['name']}", key=f"start_{pathway_key}", width="stretch"):
-                st.session_state.current_page = pathway_key
+                nav_context.navigate_to_supplemental(pathway_key)
                 st.rerun()
             
             st.markdown("<br>", unsafe_allow_html=True)
